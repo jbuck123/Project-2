@@ -8,7 +8,27 @@ const path = require('path');
 // pullin in path for path.join
 const { engine } = require('express-handlebars');
 //requiring handlebars
-const view_routes = require('./controllers/view_routes');
+const {view_routes} = require('./controllers');
+// view routes needs to have index.js inside the controllers file to work
+// if you go into index.js all it is doing is requiring view and authenticate routes files.
+//that is why it wasn't working without the index.js file
+// pulling our db connection 
+const db = require('./config/db_connection');
+const User = require('./models/user');
+
+// attaching sessions to the server 
+// const session = require('express-session')
+
+// const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
+
+// attach .env to process object 
+
+// need to understand 
+require('dotenv').config();
+
+
+
 
 
 
@@ -31,4 +51,16 @@ app.use(express.urlencoded({ extended: false}));
 
 
 // servers up.
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
+// time to work on syncing the DB to our server.
+
+db.sync({force: false}).then(() => {
+    app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
+});
+
+
+// async function test() {
+//     const users = await User.findAll();
+//     console.log(users)
+// }
+
+// test()

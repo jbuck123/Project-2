@@ -51,14 +51,9 @@ console.log(req.body)
 // validates user 
 // use req.session.errors
 // use res.redirect
-<<<<<<< HEAD
-auth_router.post('/login', isLoggedIn, (req, res) =>{
-    const {email, passwords } = req.body;
-=======
 auth_router.post('/login', isLoggedIn, (req,res) =>{
     // const {email, passwords } = req.body
     console.log("login")
->>>>>>> bc0168e5e2f464e1b3075635f894c47d0362d320
 
     //check if any of the required fields are empy
 
@@ -88,14 +83,9 @@ auth_router.post('/login', isLoggedIn, (req,res) =>{
         if (!pass_is_valid){
             req.session.errors = ['Password incorrect'];
             res.redirect('/login');
-<<<<<<< HEAD
-            
-        }
-=======
             console.log('not valid')
             return;     
         } else {
->>>>>>> bc0168e5e2f464e1b3075635f894c47d0362d320
             req.session.save(() => {
                 req.session.userId = user.id; 
 

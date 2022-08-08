@@ -65,7 +65,7 @@ app.use('/auth', auth_routes);
 // servers up.
 // time to work on syncing the DB to our server.
 
-db.sync({force: true}).then(() => {
+db.sync({force: false}).then(() => {
     app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
 });
 

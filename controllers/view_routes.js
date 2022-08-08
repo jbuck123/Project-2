@@ -7,7 +7,7 @@ const { isLoggedIn } = require("./helpers");
 // get route listening on localhost:3333
 view_router.get("/", isLoggedIn, (request, response) => {
   // id fro mthe session object
-  console.log(request.session)
+  // console.log(request.session.userId)
   const user_id = request.session.userId;
 
   if (user_id) {

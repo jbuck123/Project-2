@@ -41,16 +41,16 @@ User.init(
     hooks: {
         // built in method that runs before item is saved to the dB
       async beforeCreate(user) {
-        const hashed_pass = await bcrypt.hash(user.password, 10);
+        const hashed_pass = await bcrypt.hash(user.passwords, 10);
 
-        user.password = hashed_pass;
+        user.passwords = hashed_pass;
       },
     },
     timestamps: false,
     underscored: true
   }
 );
-
+                                                  // hashed pass               
 User.prototype.validatePassword = async function (password, stored_password) {
   return await bcrypt.compare(password, stored_password);
 };

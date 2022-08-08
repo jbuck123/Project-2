@@ -1,3 +1,75 @@
-/* * {
-    background-color: blue;
-} */
+:root {
+    --darkbg: #150C0C;
+    --chalkgreen: #799D58;
+    --palechalk: #FFF2D3;
+    --bluechalk: #00AEB1;
+    --pumpkinchalk: #E07D48;
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+body { 
+    background-color: var(--darkbg); 
+    color: var(--palechalk);
+    font-family: Arial, sans-serif;
+    font-weight: 100;
+    line-height: 30px;
+    font-size: 14px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--chalkgreen); 
+    padding:3px 16px 3px 16px;
+    color: var(--darkbg);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    max-width: 1600px;
+    margin-bottom: 24px;
+}
+ 
+.navlogo {
+    max-width: 200px;
+    justify-content: space-between;
+
+}
+
+.navlogin {
+    justify-content: space-between;
+    max-width: 200px;
+}
+
+.mainsplash {
+    display: flex;
+    max-width: 1200px;
+    align-self: center;
+}
+
+.maincontent {
+    display: flex;
+    max-width:1200px;
+    
+}
+
+.centerlists {
+    flex-direction: column;
+    width: max-content;
+    padding: 0 30px 0 30px;
+}
+
+.logoleft {
+    flex-direction: column;
+    width: max-content;
+      
+}
+
+.myreview {
+    flex-direction: column;
+    width: max-content;
+}

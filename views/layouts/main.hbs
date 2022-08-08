@@ -4,19 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Off The Shelf</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
+        <a href="/" class="logo">
+        <h1>Off The Shelf</h1>
+        </a>
         <nav>
-
-            {{{nav}}}
-
-
-            
-            {{!-- include "else" to differentiate between logged in or not --}}
-
-
+    {{#if user}}
+        <span class="email">{{user.email}}</span>
+        <a href="/auth/logout">Log Out</a>
+        {{else}}
+        <a href="/login">Log In</a>
+        <span>or</span>
+        <a href="/register">Register</a>
+      {{/if}}
         </nav>
     </header>
     <main>

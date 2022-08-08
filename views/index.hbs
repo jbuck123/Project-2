@@ -1,7 +1,39 @@
-<h2>Welcome {{#if user}} {{user.username}}{{else}}Guest{{/if}}</h2>
-
 {{#if user}} 
-<p> tony works in here</p>
+<div class="maincontent">
+
+    <div class="logoleft">
+        <img src="img/sidelogo1.jpg" width="370px">
+    </div>
+
+    <div class="centerlists">
+
+        <div class="bestsellers">
+            <img src="img/header_bestsellers.png" height="55px"><br>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem deserunt corporis quisquam non dolore, delectus, voluptatum unde repellat ex commodi assumenda voluptate ipsa nobis provident iste ducimus aut nisi maiores.
+        </div>
+
+        <div class="tsundoku">
+            <img src="img/header_tsundoku.png" height="55px"><br>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem deserunt corporis quisquam non dolore, delectus, voluptatum unde repellat ex commodi assumenda voluptate ipsa nobis provident iste ducimus aut nisi maiores.            
+        </div>
+
+        <div class="myaudio">
+            <img src="img/header_audio.png" height="55px"><br>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem deserunt corporis quisquam non dolore, delectus, voluptatum unde repellat ex commodi assumenda voluptate ipsa nobis provident iste ducimus aut nisi maiores.
+        </div>
+
+    </div>
+
+    <div class="myreview">
+        <img src="img/turtlesalltherwaydown.jpg" width="200px"><br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim voluptates ipsa maiores aut rem atque similique aperiam minima tempore incidunt ad laborum praesentium assumenda ratione, debitis cumque hic repellat asperiores.
+    </div>
+
+</div>
+
+
 {{else}}
-<img src="../front/img/splash01.jpg">
+<div class="mainsplash">
+<img src="img/splash01.jpg" width=90% alt="Opening logo, login">
+</div>
 {{/if}}

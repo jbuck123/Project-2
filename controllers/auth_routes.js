@@ -40,7 +40,7 @@ auth_router.post('/register', isLoggedIn,  (req, res) => {
             }).catch(err => {
                 // this error shows in the register.hbs view.... so sick
                 //err returns an array of an object of the err, this is mapping through the object and using just hte message property
-                req.session.errors = err.errors.map(e => e.message);
+                req.session.errors = err.errors.map(err => err.message);
                 // the awesome reload the page aka try again :)
                 res.redirect('/register')
             });
@@ -49,12 +49,12 @@ auth_router.post('/register', isLoggedIn,  (req, res) => {
 // validates user 
 // use req.session.errors
 // use res.redirect
-auth_router.post('/login', isLoggedIn, (res,req) =>{
+auth_router.post('/login', isLoggedIn, (req, res) =>{
     const {email, passwords } = req.body;
 
     //check if any of the required fields are empy
 
-    if(!email || !passwords) {
+    if(!req.body.email || !req.body.passwords) {
         // if any of those are blank than run this error
 
         req.session.errors = ["please don't leave any text fields empty."]
@@ -84,7 +84,7 @@ auth_router.post('/login', isLoggedIn, (res,req) =>{
             res.redirect('/login');
             
         }
-            req.sesion.save(() => {
+            req.session.save(() => {
                 req.session.userId = user.id; 
 
                 res.redirect('/');

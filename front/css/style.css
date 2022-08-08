@@ -1,3 +1,12 @@
-/* * {
-    background-color: blue;
-} */
+:root {
+    --darkbg: #150C0C;
+    --chalkgreen: #799D58;
+    --palechalk: #FFF2D3;
+    --bluechalk: #00AEB1;
+    --pumpkinchalk: #E07D48;
+}
+
+
+body { 
+    background-color: car(--darkbg); 
+}

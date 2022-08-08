@@ -5,8 +5,9 @@ CREATE DATABASE login_db;
 USE login_db;
 
 CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    -- id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(250) NOT NULL,
     email VARCHAR(250) NOT NULL,
     passwords VARCHAR(250) NOT NULL
 )
+

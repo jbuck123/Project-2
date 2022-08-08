@@ -1,12 +1,13 @@
 const auth_router = require('express').Router();
 const User = require('../models/User');
 const { isLoggedIn } = require('./helpers');
-// const { isLoggedIn } = require('./helpers');
+
 
 // work in progress.
 auth_router.post('/register', isLoggedIn,  (req, res) => {
     const {username, email, passwords} = req.body;
-
+    console.log('register')
+console.log(req.body)
     if (!username || !email || !passwords) {
         // if empty return errors
 
@@ -24,11 +25,11 @@ auth_router.post('/register', isLoggedIn,  (req, res) => {
     
             req.session.errors = ["That email is in use"]
             // reload the page
-            return res.redirect('/register')
+            return res.redirect('/login')
         }
 
         // create the new user 
-
+console.log(req.body)
         User.create(req.body)
             .then(new_user => {
                 req.session.save(() => {
@@ -38,6 +39,7 @@ auth_router.post('/register', isLoggedIn,  (req, res) => {
                     res.redirect('/');
                 });
             }).catch(err => {
+                console.log(err)
                 // this error shows in the register.hbs view.... so sick
                 //err returns an array of an object of the err, this is mapping through the object and using just hte message property
                 req.session.errors = err.errors.map(e => e.message);
@@ -49,12 +51,13 @@ auth_router.post('/register', isLoggedIn,  (req, res) => {
 // validates user 
 // use req.session.errors
 // use res.redirect
-auth_router.post('/login', isLoggedIn, (res,req) =>{
-    const {email, passwords } = req.body;
+auth_router.post('/login', isLoggedIn, (req,res) =>{
+    // const {email, passwords } = req.body
+    console.log("login")
 
     //check if any of the required fields are empy
 
-    if(!email || !passwords) {
+    if(!req.body.email || !req.body.passwords) {
         // if any of those are blank than run this error
 
         req.session.errors = ["please don't leave any text fields empty."]
@@ -63,9 +66,7 @@ auth_router.post('/login', isLoggedIn, (res,req) =>{
     //check if there is a username with a matching email in the database
 
     User.findOne({
-        where: {
-            email
-        }
+        where: {email: req.body.email},
         // ask for JD to explain this one monday
     }).then(async user => {
         //
@@ -77,18 +78,21 @@ auth_router.post('/login', isLoggedIn, (res,req) =>{
         //check if the password is valid
 
         // uses the custom method attatched to hte User model
-        const pass_is_valid = await user.validatePassword(passwords, user.password);
+        const pass_is_valid = await user.validatePassword(req.body.passwords, user.passwords);
 
         if (!pass_is_valid){
             req.session.errors = ['Password incorrect'];
             res.redirect('/login');
-            
-        }
-            req.sesion.save(() => {
+            console.log('not valid')
+            return;     
+        } else {
+            req.session.save(() => {
                 req.session.userId = user.id; 
 
                 res.redirect('/');
             });
+        }
+          
 
     })
 });

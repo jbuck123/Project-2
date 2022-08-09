@@ -59,6 +59,7 @@ app.use(
 // middle ware goes before your routes
 // middle ware goes before your routes
 
+
 app.use('/', view_routes);
 // this is connection the view router
 app.use('/auth', auth_routes);

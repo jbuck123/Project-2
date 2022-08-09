@@ -37,3 +37,6 @@ resetBtn.addEventListener('click', function resetSearchResults() {
     //empty searchresult UL.
     searchResults.innerHTML()
 })
+
+
+

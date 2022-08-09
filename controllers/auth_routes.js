@@ -110,5 +110,15 @@ auth_router.get('/logout', (req, res) => {
     });
   })
 
+auth_router.get('/logout', (req, res) => {
+    if(!req.session.userId) return res.redirect('/')
+    req.session.destroy(() => {
+        res.redirect('/');
+
+
+});
+
+})
+
 module.exports = auth_router;
 // logout section will come soon

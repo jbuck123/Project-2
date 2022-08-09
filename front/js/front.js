@@ -1,28 +1,44 @@
-// base URI: https://www.googleapis.com/books/v1
+const url = 'https://www.googleapis.com/books/v1/volumes?q=search-terms&key=your-API-key';
+const api_key = 'AIzaSyBSAEJ0lBONW4JVVCjjFL3QRJLm96cAQFM';
+const client_id = 'your client secret';
 
-const { application } = require("express");
 
-var get_title_alphabetically = "https://www.googleapis.com/books/v1";
+fetch(`https://www.googleapis.com/books/v1/volumes?q=dune&key=${api_key}`)
+  .then(res => res.json())
+  .then(data => {
+    console.log(data);
+  });
 
-// api key AIzaSyAtHTdOZ_99Jy6UyXEPpShYnWK2e5d62No
 
-// function findVolumeById() {
 
+
+// function updateSigninStatus(is_signed_in) {
+//   console.log(is_signed_in);
+//   if (is_signed_in) {
+//     // console.log(gapi.client.books.mylibrary);
+//     gapi.client.books.mylibrary.bookshelves.list().then(books => {
+//       console.log(books);
+//     })
+//   }
 // }
 
+// function initClient() {
+//   gapi.client.init({
+//     'apiKey': api_key,
+//     'clientId': client_id,
+//     'scope': 'https://www.googleapis.com/auth/books',
+//     'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/books/v1/rest']
+//   }).then(function () {
+//     const GoogleAuth = gapi.auth2.getAuthInstance();
 
+//     // Listen for sign-in state changes.
+//     GoogleAuth.isSignedIn.listen(updateSigninStatus);
+//     updateSigninStatus(GoogleAuth.isSignedIn.get());
 
+//     // GoogleAuth.signIn();
+//     gapi.auth2.getAuthInstance().signOut();
+//   });
+// }
 
+// gapi.load('client:auth2', initClient);
 
-// search terms : https://www.googleapis.com/books/v1/volumes?q=search+terms
-// GET "https://www.googleapis.com/books/v1/volumes?q=flowers+inauthor:keyes&key=yourAPIKey"
-
-function test() {
-    fetch(`https://www.googleapis.com/books/v1/mylibrary/bookshelves/0/addVolume?volumeId=NRWlitmahXkC&key=yourAPIKey`)
-    .then(function (res) {
-        console.log(res)
-        return res.json();
-    })
-}
-
-test();

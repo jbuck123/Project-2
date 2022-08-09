@@ -1,5 +1,6 @@
 const { DataTypes, Model } = require("sequelize");
 const bcrypt = require("bcrypt");
+const Book = require('./book');
 
 class User extends Model {}
 
@@ -54,5 +55,8 @@ User.init(
 User.prototype.validatePassword = async function (password, stored_password) {
   return await bcrypt.compare(password, stored_password);
 };
+
+User.hasMany(Book);
+Book.belongsTo(User);
 
 module.exports = User;

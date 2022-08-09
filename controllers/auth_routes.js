@@ -42,7 +42,7 @@ console.log(req.body)
                 console.log(err)
                 // this error shows in the register.hbs view.... so sick
                 //err returns an array of an object of the err, this is mapping through the object and using just hte message property
-                req.session.errors = err.errors.map(e => e.message);
+                req.session.errors = err.errors.map(err => err.message);
                 // the awesome reload the page aka try again :)
                 res.redirect('/register')
             });

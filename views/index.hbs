@@ -1,1 +1,19 @@
 <h2>Welcome {{#if user}} {{user.username}}{{else}}Guest{{/if}}</h2>
+
+
+{{#if user}}
+<div id="search">
+    <form id="myform">
+        <div class="input-field">
+            <input type="search" id="books" placeholder="Search for books">
+            <label for="search">Search Books</label>
+        </div>
+        <button> search for book</button>
+    </form>
+</div>
+
+<div id="results">
+<h3>My books</h3>
+</div>
+{{/if}}
+

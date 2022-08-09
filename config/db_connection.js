@@ -5,7 +5,7 @@ const { Sequelize } = require('sequelize');
 const connection = new Sequelize(
     'login_db',
     'root',
-    'Caughtin4k!',
+    '',
     {
         host: 'localhost',
         dialect: 'mysql',

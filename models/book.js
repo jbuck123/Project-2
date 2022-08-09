@@ -1,31 +1,27 @@
 // import models 
-// const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 
-// const sequelize = require('../config/db_connection');
+const sequelize = require('../config/db_connection');
 
-// class Book extends Model
+class Book extends Model {}
 
-// Book.init(
-//     {
-//         id: {
-//             type: DataTypes.INTEGER,
-//             allowNull: false,
-//             primaryKey: true,
-//             autoIncrement: true
-//         },
-//         book_name: {
-//             type: DataTypes.STRING,
-//             allowNull: false,
+Book.init(
+    {
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false,
            
-//         },
-//         user_id : {
-//             type: DataTypes.INTEGER,
-//             allowNull: false
-//         },
-//     },
-//     {
-//         sequelize,
-//         timestamps: false,
-//         modelName: 'book'
-//     }
-// )
+        },
+        image_url : {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+    },
+    {
+        sequelize,
+        timestamps: false,
+        modelName: 'book'
+    }
+)
+
+module.exports = Book

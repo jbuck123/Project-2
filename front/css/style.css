@@ -20,6 +20,71 @@ body {
     font-size: 14px;
 }
 
+input[type=text] {
+    padding: 10px;
+    margin: 10px 0;
+    background-color: var(--chalkgreen);
+    border-radius: 6px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--palechalk);
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:var(--palechalk);
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: var(--palechalk);
+  }
+
+input[name=username] {
+    padding: 10px;
+    margin: 10px 0;
+    background-color: var(--chalkgreen);
+    border-radius: 6px;
+    width:400px;
+}
+
+input[type=email] {
+    padding: 10px;
+    margin: 10px 0;
+    background-color: var(--chalkgreen);
+    border-radius: 6px;
+    width:400px;
+}
+
+input[type=submit] {
+    padding: 10px;
+    margin: 10px 0;
+    background-color: var(--bluechalk);
+    border-radius: 6px;
+    width:400px;
+}
+
+input[type=password] {
+    padding: 10px;
+    margin: 10px 0;
+    background-color: var(--chalkgreen);
+    border-radius: 6px;
+    width:400px;
+    
+}
+
+.form-submit-button {
+    background: var(--bluechalk);
+    color: var(--palechalk);
+    border-style: outset;
+    border-color: var(--darkbg);
+    padding: 10px;
+    border-radius: 6px;
+    width: 424px;
+    text-shadow: none;
+    margin-top: 20px;
+    }
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -28,7 +93,7 @@ body {
     padding:3px 16px 3px 16px;
     color: var(--darkbg);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 14px;
+    font-size: 22px;
     font-weight: 800;
     max-width: 1600px;
     margin-bottom: 24px;
@@ -48,28 +113,35 @@ body {
 .mainsplash {
     display: flex;
     max-width: 1200px;
-    align-self: center;
+    justify-content: center;
 }
 
 .maincontent {
-    display: flex;
+    display: grid;
+    grid-template-columns: 2fr 4fr 1fr;
     max-width:1200px;
     
 }
 
 .centerlists {
     flex-direction: column;
-    width: max-content;
     padding: 0 30px 0 30px;
+
 }
 
-.logoleft {
-    flex-direction: column;
-    width: max-content;
-      
+.bestsellers{
+    margin-bottom: 20px;      
 }
 
-.myreview {
-    flex-direction: column;
-    width: max-content;
+.tsundoku {
+    margin-bottom: 20px; 
+}
+
+.user-info {
+    margin: 60px 20px
+}
+
+.loginsplash {
+    display: flex;
+    justify-content: center;
 }

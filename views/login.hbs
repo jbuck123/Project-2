@@ -1,12 +1,18 @@
-<h1>login page</h1>
 
+<div class=loginsplash>
+  
+  <div class="logologin">
+    <img src="img/sidelogo1.jpg" width="140px">
+  </div>
 
-<div class="user-info">
+  <div class="user-info">
+      <h1>Login page</h1>
+      <form action="/auth/login" method="post">
+        {{!-- <h3>Login</h3> --}}
+        <input name="email" type="email" placeholder="Enter your email address"><br>
+        <input name="passwords" type="password" placeholder="Enter your password"><br>
+        <button class="form-submit-button" width="300px">Submit</button>
+      </form>
+  </div>
 
-   <form action="/auth/login" method="post">
-  <h3>Login</h3>
-  <input name="email" type="email" placeholder="Enter your email address">
-  <input name="passwords" type="password" placeholder="Enter your password">
-  <button>Submit</button>
-</form>
 </div>

@@ -17,7 +17,8 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 // need to understand 
 require('dotenv').config();
 //conecting the serve to the front end styling 
-const { view_routes, auth_routes, book_routes } = require('./controllers')
+const { view_routes, auth_routes, book_routes } = require('./controllers');
+const { truncate } = require('./models/book');
 
 const app = express();
 // this is setting a var for express serve
@@ -68,7 +69,7 @@ app.use('/auth', auth_routes);
 app.use('/api', book_routes);
 
 
-db.sync({force: false}).then(() => {
+db.sync({force: true}).then(() => {
     app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
 });
 

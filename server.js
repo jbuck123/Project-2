@@ -1,7 +1,7 @@
 const express = require('express');
 // this is pulling in the express package
 const path = require('path');
-const { isLoggedIn } = require('./controllers/helpers');
+// const { isLoggedIn } = require('./controllers/helpers');
 
 // this is the PORT for the local host. adding process.env.PORT
 //requiring handlebars
@@ -17,7 +17,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 // need to understand 
 require('dotenv').config();
 //conecting the serve to the front end styling 
-const { view_routes, auth_routes } = require('./controllers')
+const { view_routes, auth_routes, book_routes } = require('./controllers')
 
 const app = express();
 // this is setting a var for express serve
@@ -65,6 +65,8 @@ app.use('/', view_routes);
 app.use('/auth', auth_routes);
 // servers up.
 // time to work on syncing the DB to our server.
+app.use('/api/books', book_routes);
+
 
 db.sync({force: false}).then(() => {
     app.listen(PORT, () => console.log(`Listening on port ${PORT}`))

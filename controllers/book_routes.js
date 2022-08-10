@@ -1,9 +1,10 @@
 const book_router = require('express').Router()
 const Book = require('../models/book');
+const User = require('../models/User');
 // const auth_router = require('./auth_routes');
 
 
-book_router.post('/', async (req, res, next) => {
+book_router.post('/', async (req, res) => {
     // console.log(req.headers);
     const {title, image_url} = req.body
     console.log('books routing')
@@ -17,17 +18,18 @@ book_router.post('/', async (req, res, next) => {
     
 
     // create new book
-
-    const newFavBook = Book.create(req.body)
+    const user = await User.findByPk(req.session.userId)
+    const newFavBook = await user.createBook(req.body)
+    res.redirect('/')
     // console.log("this is " + newFavBook)
-    console.log("this is " + req.body)
-    if(newFavBook) {
-        res.status(200).json(newFavBook)
-        // console.log(newFavBook)
+    // console.log("this is " + req.body)
+    // if(newFavBook) {
+    //     res.status(200).json(newFavBook)
+    //     // console.log(newFavBook)
 
-    }
-    // res.status(500).json('Internal Server Error BEEP BOOP')
-    next();
+    // }
+    // // res.status(500).json('Internal Server Error BEEP BOOP')
+    // next();
 })
 
 module.exports = book_router;

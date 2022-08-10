@@ -24,8 +24,10 @@ searchBtn.addEventListener('click', function searchByTitle(event) {
         // const {title, description} = data.items[i].volumeInfo
         // console.log(id);    
         searchResults.insertAdjacentHTML('beforeend', `
-        <form id=${id}>
-          <p>${title}</p>
+        <form method="post" action="/api" id=${id}>
+          <input type="hidden" value=${title} name="title">
+          <input type="hidden" value=${thumbnailImg} name="image_url">
+          <p>${title}</p>          
           <img src="${thumbnailImg}">
           <p>${bookDescription}</p>
           <button data-image_url="${thumbnailImg}" data-title="${title}" class="form-submit-button">ADD TO FAVORITES</button>
@@ -34,30 +36,30 @@ searchBtn.addEventListener('click', function searchByTitle(event) {
         // return { id, title, thumbnailImg, bookDescription}
       } 
     //   var addBookToFavorites = document.querySelector('#');
-      searchResults.addEventListener('click', function addToFavorite(event){
-        event.preventDefault();
-        // console.log(event.target)
-        const el = event.target;
-        if(el.tagName = 'BUTTON') {
-            const title = el.dataset.title;
-            const imgUrl = el.dataset.image_url;
-            //FETCH with a post route request to backend. send a post request with data we want to send to the backend. save a book add a book to the favorites column.
-            //use an API request. Post request to backend passing in title and imgUrl 
-            // const request = {
-            //     body: {
-            //     'method': 'POST',
-            //     'content-type': 'application/json',
-            //     json.stringify
-            //     }
-            // }
-            const request = fetch(`/api`, {
-                method: 'POST',
-                body: JSON.stringify({ title, imgUrl }),
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-              }).then(response => console.log(response) );
-            console.log(request);
+      // searchResults.addEventListener('click', function addToFavorite(event){
+      //   event.preventDefault();
+      //   // console.log(event.target)
+      //   const el = event.target;
+      //   if(el.tagName = 'BUTTON') {
+      //       const title = el.dataset.title;
+      //       const imgUrl = el.dataset.image_url;
+      //       //FETCH with a post route request to backend. send a post request with data we want to send to the backend. save a book add a book to the favorites column.
+      //       //use an API request. Post request to backend passing in title and imgUrl 
+      //       // const request = {
+      //       //     body: {
+      //       //     'method': 'POST',
+      //       //     'content-type': 'application/json',
+      //       //     json.stringify
+      //       //     }
+      //       // }
+      //       const request = fetch(`/api`, {
+      //           method: 'POST',
+      //           body: JSON.stringify({ title, imgUrl }),
+      //           headers: {
+      //             'Content-Type': 'application/json',
+      //           },
+      //         }).then(response => console.log(response) );
+      //       console.log(request);
             // fetch('/api/books', request)
             //     .then(response => {
             //         response.json();
@@ -67,7 +69,7 @@ searchBtn.addEventListener('click', function searchByTitle(event) {
 
             // console.log(title);
             // console.log(imgUrl);
-        }
+        // }
         
         
         
@@ -81,7 +83,7 @@ searchBtn.addEventListener('click', function searchByTitle(event) {
         //   <button class="form-submit-button">REMOVE FROM FAVORITES</button>
         //   </form>
         //   `)
-      });
+      // });
 
   });
 });

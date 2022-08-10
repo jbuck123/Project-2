@@ -18,7 +18,7 @@ book_router.post('/', (req, res, next) => {
     // create new book
 
     const newFavBook = Book.create({title, image_url})
-    console.log(newFavBook)
+    console.log("this is " + newFavBook)
     if(newFavBook) {
         res.status(200).json(newFavBook)
     }

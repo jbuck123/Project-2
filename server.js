@@ -1,7 +1,7 @@
 const express = require('express');
 // this is pulling in the express package
 const path = require('path');
-const { isLoggedIn } = require('./controllers/helpers');
+// const { isLoggedIn } = require('./controllers/helpers');
 
 // this is the PORT for the local host. adding process.env.PORT
 //requiring handlebars

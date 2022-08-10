@@ -3,7 +3,7 @@ const Book = require('../models/book');
 // const auth_router = require('./auth_routes');
 
 
-book_router.post('/', (req, res, next) => {
+book_router.post('/', (req, res) => {
     console.log(req.headers);
     const {title, image_url} = req.body
     console.log('books routing')
@@ -23,7 +23,6 @@ book_router.post('/', (req, res, next) => {
         res.status(200).json(newFavBook)
     }
     // res.status(500).json('Internal Server Error BEEP BOOP')
-    next();
 })
 
 module.exports = book_router;

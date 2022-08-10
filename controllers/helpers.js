@@ -1,6 +1,6 @@
 // exports. is short hand of module.exports.. this file is exporting this function.
 
-exports.isLoggedIn = function (req, res, next) {
+exports.isLoggedIn = function (req, res) {
     const user_id = req.session.userId;
    
                     // user_id is created in the user model page.
@@ -13,6 +13,5 @@ exports.isLoggedIn = function (req, res, next) {
       return res.redirect('/');
     }
   
-    next();
   }
 

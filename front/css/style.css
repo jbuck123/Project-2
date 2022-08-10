@@ -1,5 +1,6 @@
 :root {
     --darkbg: #150C0C;
+    --darkbg1: #241313;
     --chalkgreen: #799D58;
     --palechalk: #FFF2D3;
     --bluechalk: #00AEB1;
@@ -143,3 +144,16 @@ input[type=password] {
     display: flex;
     justify-content: center;
 }
+
+/* ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo */
+@media only screen and (max-width: 600px) {
+    body {
+      background-color: var(--darkbg1);
+    }
+    .maincontent {
+        display: flex;
+        max-width: 600px;
+    }
+}
+
+

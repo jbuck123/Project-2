@@ -17,19 +17,21 @@ searchBtn.addEventListener('click', function searchByTitle(event) {
   .then(data => {
     //   console.log(data.items);
       for(var i = 0; i < data.items.length; i++) {
-        title = data.items[i].volumeInfo.title;
-        thumbnailImg = data.items[i].volumeInfo.imageLinks.thumbnail;
-        bookDescription = data.items[i].volumeInfo.description;
-        id = data.items[i].id;
+        const title = data.items[i].volumeInfo.title;
+        const thumbnailImg = data.items[i].volumeInfo.imageLinks.thumbnail;
+        const bookDescription = data.items[i].volumeInfo.description;
+        const id = data?.items[i]?.id;
+        // const {title, description} = data.items[i].volumeInfo
         // console.log(id);    
         searchResults.insertAdjacentHTML('beforeend', `
-        <form>
+        <form id=${id}>
           <p>${title}</p>
           <img src="${thumbnailImg}">
           <p>${bookDescription}</p>
           <button data-image_url="${thumbnailImg}" data-title="${title}" class="form-submit-button">ADD TO FAVORITES</button>
         </form>
         `);
+        // return { id, title, thumbnailImg, bookDescription}
       } 
     //   var addBookToFavorites = document.querySelector('#');
       searchResults.addEventListener('click', function addToFavorite(event){
@@ -40,7 +42,20 @@ searchBtn.addEventListener('click', function searchByTitle(event) {
             const title = el.dataset.title;
             const imgUrl = el.dataset.image_url;
             //FETCH with a post route request to backend. send a post request with data we want to send to the backend. save a book add a book to the favorites column.
-            //use an API request. Post request to backend passing in title and thumbnail 
+            //use an API request. Post request to backend passing in title and imgUrl 
+            const request = {
+                body: {
+                'method': 'POST',
+                'content-type': 'application/json'
+                }
+            }
+            fetch('/api/books', request)
+                .then(response => {
+                    response.json();
+                }).then(json => {
+                    console.log(json);
+                })
+
             console.log(title);
             console.log(imgUrl);
         }
@@ -71,3 +86,18 @@ resetBtn.addEventListener('click', function resetSearchResults() {
 
 
 
+            // if (title && imgUrl) {
+            // const response = await fetch(`/`, {
+            //     method: 'POST',
+            //     body: JSON.stringify({title, imgUrl}), // does the imgurl need to be changed to json
+            //     headers: {
+            //         'Content-Type': 'appliction/json',
+            //     }
+            // })
+            
+            // if (response.ok) {
+            //     document.location.replace('/book');
+            // } else {
+            //     alert('failed to create project');
+            // }
+            // }

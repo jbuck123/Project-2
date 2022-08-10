@@ -36,28 +36,37 @@ searchBtn.addEventListener('click', function searchByTitle(event) {
     //   var addBookToFavorites = document.querySelector('#');
       searchResults.addEventListener('click', function addToFavorite(event){
         event.preventDefault();
-        console.log(event.target)
+        // console.log(event.target)
         const el = event.target;
         if(el.tagName = 'BUTTON') {
             const title = el.dataset.title;
             const imgUrl = el.dataset.image_url;
             //FETCH with a post route request to backend. send a post request with data we want to send to the backend. save a book add a book to the favorites column.
             //use an API request. Post request to backend passing in title and imgUrl 
-            const request = {
-                body: {
-                'method': 'POST',
-                'content-type': 'application/json'
-                }
-            }
-            fetch('/api/books', request)
-                .then(response => {
-                    response.json();
-                }).then(json => {
-                    console.log(json);
-                })
+            // const request = {
+            //     body: {
+            //     'method': 'POST',
+            //     'content-type': 'application/json',
+            //     json.stringify
+            //     }
+            // }
+            const request = fetch(`/api`, {
+                method: 'POST',
+                body: JSON.stringify({ title, imgUrl }),
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+              }).then(response => console.log(response) );
+            console.log(request);
+            // fetch('/api/books', request)
+            //     .then(response => {
+            //         response.json();
+            //     }).then(json => {
+            //         console.log(json);
+            //     })
 
-            console.log(title);
-            console.log(imgUrl);
+            // console.log(title);
+            // console.log(imgUrl);
         }
         
         

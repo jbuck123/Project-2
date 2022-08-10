@@ -33,16 +33,19 @@ view_router.get("/", isLoggedIn, (request, response) => {
   }
 
   response.render("index");
+  
 });
 // login page
 view_router.get("/login", isLoggedIn, (request, response) => {
   //errors are being attatched to the session object, so it can be sent through when the user visits /login or /register
   response.render("login", { errors: request.session.errors });
+  
 });
 
 //register page
 view_router.get("/register", isLoggedIn, (request, response) => {
   response.render("register", { errors: request.session.errors });
+  
 });
 
 module.exports = view_router;

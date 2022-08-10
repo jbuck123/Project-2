@@ -65,7 +65,7 @@ app.use('/', view_routes);
 app.use('/auth', auth_routes);
 // servers up.
 // time to work on syncing the DB to our server.
-app.use('/api/books', book_routes);
+app.use('/api', book_routes);
 
 
 db.sync({force: false}).then(() => {

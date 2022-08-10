@@ -1,7 +1,4 @@
 node_modules
-<<<<<<< HEAD
-.env
-=======
 font
 howler.js
->>>>>>> 5773299ab609934d5433aa939a569011d955e594
+db_connection.js

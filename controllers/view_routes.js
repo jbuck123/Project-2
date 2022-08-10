@@ -6,7 +6,7 @@ const { isLoggedIn } = require("./helpers");
 const Book = require('../models/book');
 
 // get route listening on localhost:3333
-view_router.get("/", isLoggedIn, (request, response, next) => {
+view_router.get("/", isLoggedIn, (request, response) => {
   // id fro mthe session object
   // console.log(request.session.userId)
   const user_id = request.session.userId;
@@ -33,19 +33,19 @@ view_router.get("/", isLoggedIn, (request, response, next) => {
   }
 
   response.render("index");
-  next();
+  
 });
 // login page
-view_router.get("/login", isLoggedIn, (request, response, next) => {
+view_router.get("/login", isLoggedIn, (request, response) => {
   //errors are being attatched to the session object, so it can be sent through when the user visits /login or /register
   response.render("login", { errors: request.session.errors });
-  next();
+  
 });
 
 //register page
-view_router.get("/register", isLoggedIn, (request, response, next) => {
+view_router.get("/register", isLoggedIn, (request, response) => {
   response.render("register", { errors: request.session.errors });
-  next();
+  
 });
 
 module.exports = view_router;

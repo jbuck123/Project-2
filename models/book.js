@@ -14,8 +14,14 @@ Book.init(
         },
         image_url : {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            autoIncrement: true,
+            primaryKey: true
+        }
     },
     {
         sequelize,

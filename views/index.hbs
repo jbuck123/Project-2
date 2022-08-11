@@ -1,0 +1,55 @@
+{{#if user}} 
+<div class="maincontent">
+
+    <div class="logoleft">
+        <img src="img/sidelogo1.jpg" width="310px">
+    </div>
+
+    <div class="centerlists">
+
+        {{!-- <div class="bestsellers">
+            <img src="img/header_bestsellers.png" height="45px"><br>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem deserunt corporis quisquam non dolore, delectus, voluptatum unde repellat ex commodi assumenda voluptate ipsa nobis provident iste ducimus aut nisi maiores.
+        </div> --}}
+
+        <div class="tsundoku">
+            <img src="img/header_tsundoku.png" height="45px"><br>
+            <ul id="favorited-books">
+                {{#each user.books}}
+                    <p>{{this.title}}</p>
+                    <img src="{{this.image_url}}"> 
+                {{/each}}
+            </ul>            
+        </div>
+
+        {{!-- <div class="myaudio">
+            <img src="img/header_audio.png" height="45px"><br>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem deserunt corporis quisquam non dolore, delectus, voluptatum unde repellat ex commodi assumenda voluptate ipsa nobis provident iste ducimus aut nisi maiores.
+        </div> --}}
+
+    </div>
+
+    <div class="myreview">
+        {{!-- <img src="img/turtlesalltherwaydown.jpg" width="200px"><br> --}}
+            Search for a book by Title.
+    <form>
+        <input type="text" id="title-search">
+        <button id="search-btn" class="form-submit-button">SEARCH</button>
+        <button id="reset-btn" class="form-submit-button">RESET</button>
+    </form>
+      <ul id="searchResults">
+
+      </ul>
+
+    </div>
+    
+
+
+</div>
+
+
+{{else}}
+<div class="mainsplash">
+<img src="img/splash01.jpg" width=75% alt="Opening logo, login">
+</div>
+{{/if}}

@@ -1,1 +1,4 @@
 node_modules
+font
+howler.js
+db_connection.js

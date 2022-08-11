@@ -1,0 +1,43 @@
+<div class=loginsplash>
+  
+  <div class="logologin">
+    <img src="img/sidelogo1.jpg" width="150px">
+  </div>
+
+{{#if errors}}
+  <div class="errors">
+    {{#each errors}}
+      <p>{{this}}</p>
+    {{/each}}
+  </div>
+{{/if}}
+<div class="register">
+<form action="/auth/register" method="POST">
+  <h1>Register</h1>
+  <input name="username" type="text" placeholder="Enter your username"><br>
+  <input name="email" type="email" placeholder="Enter your email address"><br>
+  <input name="passwords" type="password" placeholder="Enter your password"><br>
+  <button class="form-submit-button" width="300px">Submit</button>
+</form>
+</div>
+
+</div>
+
+
+
+{{!-- {{#if errors}}
+  <div class="errors">
+    {{#each errors}}
+      <p>{{this}}</p>
+    {{/each}}
+  </div>
+{{/if}}
+<div class="register">
+<form action="/auth/register" method="POST">
+  <h3>Register</h3>
+  <input name="username" type="text" placeholder="Enter your username"><br>
+  <input name="email" type="email" placeholder="Enter your email address"><br>
+  <input name="passwords" type="password" placeholder="Enter your password"><br>
+  <button class="form-submit-button" width="300px">Submit</button>
+</form>
+</div> --}}

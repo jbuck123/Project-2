@@ -12,9 +12,6 @@ const PORT = process.env.PORT || 3333;
 const db = require('./config/db_connection');
 const session = require('express-session')
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-// const User = require('./models/user');
-// attach .env to process object 
-// need to understand 
 require('dotenv').config();
 //conecting the serve to the front end styling 
 const { view_routes, auth_routes, book_routes } = require('./controllers');

@@ -145,3 +145,22 @@ input[type=password] {
     display: flex;
     justify-content: center;
 }
+
+/* ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo */
+@media only screen and (max-width: 600px) {
+    body {
+      background-color: var(--darkbg1);
+    }
+    .maincontent {
+        display: flex;
+        max-width: 600px;
+    }
+
+    .navbar {
+        font-size: 14px;
+        font-weight: 800;
+        max-width: 600px;
+        margin-bottom: 14px;
+    }
+     
+}

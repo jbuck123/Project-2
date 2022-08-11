@@ -154,6 +154,14 @@ input[type=password] {
         display: flex;
         max-width: 600px;
     }
+
+    .navbar {
+        font-size: 14px;
+        font-weight: 800;
+        max-width: 600px;
+        margin-bottom: 14px;
+    }
+     
 }
 
 

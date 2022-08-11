@@ -1,45 +1,39 @@
 :root {
     --darkbg: #150C0C;
+    --darkbg1: #241313;
     --chalkgreen: #799D58;
     --palechalk: #FFF2D3;
     --bluechalk: #00AEB1;
     --pumpkinchalk: #E07D48;
 }
-
 a, a:hover, a:focus, a:active {
     text-decoration: none;
     color: inherit;
 }
-
-body { 
-    background-color: var(--darkbg); 
+body {
+    background-color: var(--darkbg);
     color: var(--palechalk);
     font-family: Arial, sans-serif;
     font-weight: 100;
     line-height: 30px;
     font-size: 14px;
 }
-
 input[type=text] {
     padding: 10px;
     margin: 10px 0;
     background-color: var(--chalkgreen);
     border-radius: 6px;
 }
-
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: var(--palechalk);
     opacity: 1; /* Firefox */
   }
-  
   :-ms-input-placeholder { /* Internet Explorer 10-11 */
     color:var(--palechalk);
   }
-  
   ::-ms-input-placeholder { /* Microsoft Edge */
     color: var(--palechalk);
   }
-
 input[name=username] {
     padding: 10px;
     margin: 10px 0;
@@ -47,7 +41,6 @@ input[name=username] {
     border-radius: 6px;
     width:400px;
 }
-
 input[type=email] {
     padding: 10px;
     margin: 10px 0;
@@ -55,7 +48,6 @@ input[type=email] {
     border-radius: 6px;
     width:400px;
 }
-
 input[type=submit] {
     padding: 10px;
     margin: 10px 0;
@@ -63,16 +55,13 @@ input[type=submit] {
     border-radius: 6px;
     width:400px;
 }
-
 input[type=password] {
     padding: 10px;
     margin: 10px 0;
     background-color: var(--chalkgreen);
     border-radius: 6px;
     width:400px;
-    
 }
-
 .form-submit-button {
     background: var(--bluechalk);
     color: var(--palechalk);
@@ -84,12 +73,11 @@ input[type=password] {
     text-shadow: none;
     margin-top: 20px;
     }
-
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--chalkgreen); 
+    background-color: var(--chalkgreen);
     padding:3px 16px 3px 16px;
     color: var(--darkbg);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -98,69 +86,70 @@ input[type=password] {
     max-width: 1600px;
     margin-bottom: 24px;
 }
- 
 .navlogo {
     max-width: 200px;
     justify-content: space-between;
-
 }
-
+.toplogo {
+    display: none;
+}
+.leftlogo {
+    display: visible;
+}
 .navlogin {
     justify-content: space-between;
     max-width: 200px;
 }
-
 .mainsplash {
     display: flex;
     max-width: 1200px;
     justify-content: center;
 }
-
 .maincontent {
     display: grid;
     grid-template-columns: 2fr 4fr 1fr;
     max-width:1200px;
-    
 }
-
 .centerlists {
     flex-direction: column;
     padding: 0 30px 0 30px;
-
 }
-
 .bestsellers{
-    margin-bottom: 20px;      
+    margin-bottom: 20px;
 }
-
 .tsundoku {
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
-
 .user-info {
     margin: 60px 20px
 }
-
 .loginsplash {
     display: flex;
     justify-content: center;
 }
-
 /* ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo */
 @media only screen and (max-width: 600px) {
     body {
       background-color: var(--darkbg1);
     }
-    .maincontent {
-        display: flex;
-        max-width: 600px;
-    }
-
     .navbar {
         font-size: 14px;
         font-weight: 800;
-        max-width: 600px;
+        max-width: 100%;
         margin-bottom: 14px;
     }
-     
+    .toplogo {
+        display: visible;
+}
+    .leftlogo {
+        display: none;
+}
+    .maincontent {
+        flex-direction: column;
+        max-width:600px;
+    }
+    .centerlists {
+        flex-direction: column;
+        padding: 0 30px 0 30px;
+    }
 }

@@ -106,6 +106,10 @@ input[type=password] {
 
 }
 
+.toplogo {
+    visibility: invisible;
+} 
+
 .navlogin {
     justify-content: space-between;
     max-width: 200px;
@@ -150,16 +154,28 @@ input[type=password] {
     body {
       background-color: var(--darkbg1);
     }
-    .maincontent {
-        display: flex;
-        max-width: 600px;
-    }
-
     .navbar {
         font-size: 14px;
         font-weight: 800;
-        max-width: 600px;
+        max-width: 100%;
         margin-bottom: 14px;
     }
-     
+    .toplogo {
+        visibility: visible;
+}     
+    .leftlogo {
+        visibility: invisble;
+}
+    .maincontent {
+        flex-direction: column;
+        max-width:600px;
+    }
+    
+    .centerlists {
+        flex-direction: column;
+        padding: 0 30px 0 30px;
+    }
+    
+   
+
 }

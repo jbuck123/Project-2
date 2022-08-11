@@ -22,7 +22,7 @@ searchBtn.addEventListener('click', function searchByTitle(event) {
         const id = data?.items[i]?.id;
         searchResults.insertAdjacentHTML('beforeend', `
         <form method="post" action="/api" id=${id}>
-          <input type="hidden" value=${title} name="title">
+          <input type="hidden" value='${title}' name="title">
           <input type="hidden" value=${thumbnailImg} name="image_url">
           <p>${title}</p>          
           <img src="${thumbnailImg}">

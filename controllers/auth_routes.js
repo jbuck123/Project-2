@@ -4,7 +4,7 @@ const { isLoggedIn } = require('./helpers');
 
 
 // work in progress.
-auth_router.post('/register', isLoggedIn,  (req, res, next) => {
+auth_router.post('/register', isLoggedIn,  (req, res) => {
     const {username, email, passwords} = req.body;
     console.log('register')
 console.log(req.body)
@@ -52,7 +52,7 @@ console.log(req.body)
 // validates user 
 // use req.session.errors
 // use res.redirect
-auth_router.post('/login', isLoggedIn, (req, res, next) =>{
+auth_router.post('/login', isLoggedIn, (req, res) =>{
     // const {email, passwords } = req.body
     console.log("login")
 
@@ -99,7 +99,7 @@ auth_router.post('/login', isLoggedIn, (req, res, next) =>{
     
 });
 
-auth_router.get('/logout', (req, res, next) => {
+auth_router.get('/logout', (req, res) => {
     // If they are already logged out and we have no session data, we redirect them
     // back to the index view
     if (!req.session.userId) return res.redirect('/');
@@ -110,10 +110,9 @@ auth_router.get('/logout', (req, res, next) => {
       // Once the session is killed, we redirect them back to the index view
       res.redirect('/');
     });
-    next();
   })
 
-auth_router.get('/logout', (req, res, next) => {
+auth_router.get('/logout', (req, res) => {
     if(!req.session.userId) return res.redirect('/')
     req.session.destroy(() => {
         res.redirect('/');

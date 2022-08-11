@@ -25,7 +25,13 @@ view_router.get("/", isLoggedIn, (request, response) => {
       user = {
         username: user.username,
         email: user.email,
-        books: user.books
+        books: user.books.map(book => {
+          return {
+            id: book.id,
+            title: book.title,
+            image_url: book.image_url,
+          }
+        })
       };
 
       response.render("index", { user });

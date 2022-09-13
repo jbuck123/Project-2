@@ -4,6 +4,10 @@ collaborators : Brett, Spencer, Tony and James
 ## Description
 Off the shelf is an application that allows a user to create a profile and save their library collection to their profile. There they can manage their book collection, and utilize their list to pick which book they would like to read next.
 
+Heroku: https://off-the-shelf-project-2.herokuapp.com/  
+Github: https://github.com/jbuck123/Project-2  
+
+
 ## Visuals
 
 ### Root Page
